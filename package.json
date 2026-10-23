@@ -1,0 +1,15 @@
+{
+  "name": "tool-page-app",
+  "private": true,
+  "version": "1.0.0",
+  "author": "SAP SE",
+  "description": "UI5 Demo App - Toolpage App",
+  "scripts": {
+    "audit": "ui5-blueprint-audit",
+    "audit-fs": "ui5-blueprint-audit --type fs"
+  },
+  "devDependencies": {
+    "@abap/ui5-blueprint-audit": "^0.8.0",
+    "@ui5/cli": "^4"
+  }
+}

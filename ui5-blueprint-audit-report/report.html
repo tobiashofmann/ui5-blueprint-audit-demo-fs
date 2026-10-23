@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>UI5 BlueprintAudit Report</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #595959;
+    --border: #ccc;
+    --th-bg: #f0f0f0;
+    --row-error-bg: rgba(198, 40, 40, 0.12);
+    --row-warn-bg: rgba(184, 134, 11, 0.14);
+    --code-bg: rgba(0, 0, 0, 0.08);
+    --error-text: #b3261e;
+    --accent: #2457c5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1e1e1e;
+      --fg: #e8e8e8;
+      --muted: #b0b0b0;
+      --border: #555;
+      --th-bg: #2b2b2b;
+      --row-error-bg: rgba(248, 113, 113, 0.18);
+      --row-warn-bg: rgba(250, 204, 21, 0.18);
+      --code-bg: rgba(255, 255, 255, 0.14);
+      --error-text: #ff8a80;
+      --accent: #7aa2ff;
+    }
+  }
+  body { font-family: -apple-system, system-ui, sans-serif; margin: 2rem; max-width: 1000px; background: var(--bg); color: var(--fg); }
+  h1, h2, h3 { color: var(--fg); margin-bottom: 0.25rem; }
+  .meta { color: var(--muted); margin-bottom: 1.5rem; }
+  table { border-collapse: collapse; width: 100%; margin-bottom: 1rem; color: var(--fg); }
+  th, td { border: 1px solid var(--border); padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+  th { background: var(--th-bg); color: var(--fg); }
+  .badge { display: inline-block; padding: 0.1rem 0.5rem; border-radius: 0.75rem; font-size: 0.85em; color: #fff; }
+  .badge-ok { background: #2e7d32; }
+  .badge-warn { background: #9a6b00; }
+  .badge-error { background: #b3261e; }
+  .row-error { background: var(--row-error-bg); }
+  .row-warn { background: var(--row-warn-bg); }
+  details.project { border: 1px solid var(--border); border-radius: 0.5rem; margin-bottom: 0.75rem; padding: 0.5rem 0.75rem; }
+  details.project summary { cursor: pointer; font-weight: 600; color: var(--fg); }
+  table.rules { margin-top: 0.75rem; }
+  ul { margin: 0; padding-left: 1.2rem; }
+  code { background: var(--code-bg); color: var(--fg); padding: 0.1rem 0.3rem; border-radius: 0.25rem; }
+  .config-error { color: var(--error-text); }
+  .lang-switch { margin-bottom: 1.5rem; }
+  .lang-switch button { border: 1px solid var(--border); background: transparent; color: var(--fg); padding: 0.3rem 0.8rem; border-radius: 0.5rem; margin-right: 0.4rem; cursor: pointer; font: inherit; }
+  .lang-switch button[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
+</style>
+</head>
+<body>
+  <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-locale="de">Deutsch</button>
+      <button type="button" data-locale="en">English</button>
+  </div>
+
+  <div class="locale-panel" data-locale="de" lang="de" hidden>
+    <h1>UI5 BlueprintAudit Report</h1>
+    <p class="meta">Erstellt: 2026-10-23T15:03:30.954Z</p>
+
+    <h2>Zusammenfassung</h2>
+    <table>
+      <thead><tr><th>Projekt</th><th>Typ</th><th>Fehler</th><th>Warnungen</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Shop Administration Tool</td>
+          <td>fs</td>
+          <td>12</td>
+          <td>5</td>
+          <td><span class="badge badge-error">Fehler</span></td>
+        </tr></tbody>
+    </table>
+
+    <h2>Details</h2>
+    
+    <details class="project">
+      <summary>Shop Administration Tool (fs) <span class="badge badge-error">Fehler</span></summary>
+      <table class="rules">
+        <thead>
+          <tr><th>Regel</th><th>Beschreibung</th><th>Severity</th><th>Status</th><th>Findings</th></tr>
+        </thead>
+        <tbody>
+        <tr class="row-error">
+          <td><code>typescript</code></td>
+          <td>Das Projekt verwendet TypeScript.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Fehler</span></td>
+          <td><ul><li><code>tsconfig.json</code>: Es fehlt eine tsconfig.json im Projektroot.</li><li><code>webapp/Component.js</code>: JavaScript-Datei statt TypeScript: webapp/Component.js</li><li><code>webapp/control/D3Chart.js</code>: JavaScript-Datei statt TypeScript: webapp/control/D3Chart.js</li><li><code>webapp/control/D3ColumnChart.js</code>: JavaScript-Datei statt TypeScript: webapp/control/D3ColumnChart.js</li><li><code>webapp/control/D3ComparisonChart.js</code>: JavaScript-Datei statt TypeScript: webapp/control/D3ComparisonChart.js</li><li><code>webapp/control/D3PieChart.js</code>: JavaScript-Datei statt TypeScript: webapp/control/D3PieChart.js</li><li><code>webapp/controller/App.controller.js</code>: JavaScript-Datei statt TypeScript: webapp/controller/App.controller.js</li><li><code>webapp/controller/BaseController.js</code>: JavaScript-Datei statt TypeScript: webapp/controller/BaseController.js</li><li><code>webapp/controller/Home.controller.js</code>: JavaScript-Datei statt TypeScript: webapp/controller/Home.controller.js</li><li><code>webapp/controller/Statistics.controller.js</code>: JavaScript-Datei statt TypeScript: webapp/controller/Statistics.controller.js</li><li><code>webapp/controller/settings/MasterSettings.controller.js</code>: JavaScript-Datei statt TypeScript: webapp/controller/settings/MasterSettings.controller.js</li><li><code>webapp/model/formatter.js</code>: JavaScript-Datei statt TypeScript: webapp/model/formatter.js</li><li><code>webapp/model/models.js</code>: JavaScript-Datei statt TypeScript: webapp/model/models.js</li></ul></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>xml-views</code></td>
+          <td>Views sind als XML Views implementiert.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>controller-matches-view</code></td>
+          <td>Der Controller-Name jeder XML View entspricht dem Dateinamen der View, und diese Controller-Datei existiert.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Fehler</span></td>
+          <td><ul><li><code>webapp/view/settings/DetailSettings.view.xml</code>: View &quot;webapp/view/settings/DetailSettings.view.xml&quot; sollte einen Controller namens &quot;DetailSettings&quot; referenzieren, referenziert aber &quot;sap.ui.demo.toolpageapp.controller.settings.MasterSettings&quot; (erwarteter Basisname &quot;DetailSettings&quot;, tatsächlich &quot;MasterSettings&quot;).</li></ul></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>folder-structure</code></td>
+          <td>Die Mindest-Ordnerstruktur ist vorhanden.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>no-custom-controls</code></td>
+          <td>Das Projekt definiert keine eigenen UI5 Controls.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Fehler</span></td>
+          <td><ul><li><code>webapp/control/D3Chart.js</code>: Eigenes Control &quot;sap.ui.demo.toolpageapp.control.D3Chart&quot; in webapp/control/D3Chart.js</li></ul></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>odata-service</code></td>
+          <td>Anzahl der verwendeten OData Services liegt im erwarteten Bereich.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Fehler</span></td>
+          <td><ul><li><code>webapp/manifest.json</code>: Nur 0 OData-Service(s) gefunden, mindestens 1 erwartet.</li></ul></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>odata-metadata-local</code></td>
+          <td>Das OData-Metadaten-Dokument liegt lokal vor.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>non-odata-json</code></td>
+          <td>Nicht-OData-Services werden als JSONModel realisiert.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>no-custom-css</code></td>
+          <td>Das Projekt enthält kein eigenes CSS.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>theme</code></td>
+          <td>Das Theme ist vorgegeben und konsistent konfiguriert.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>cache-buster</code></td>
+          <td>Die App verwendet den Cache Buster.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Fehler</span></td>
+          <td><ul><li>Kein Cachebuster-Task/-Middleware in ui5.yaml konfiguriert und index.html bindet UI5 nicht über eine versionierte Cachebuster-URL ein.</li></ul></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>namespace</code></td>
+          <td>Die App verwendet den vorgegebenen Namensraum.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Fehler</span></td>
+          <td><ul><li><code>webapp/manifest.json</code>: sap.app/id (&quot;sap.ui.demo.toolpageapp&quot;) beginnt nicht mit &quot;de.itsfullofstars&quot;.</li></ul></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>consistent-namespace</code></td>
+          <td>Alle Artefakte der App verwenden denselben Namensraum.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>fragments-folder</code></td>
+          <td>XML Fragmente, die keine Dialoge sind, liegen im Fragments-Ordner.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>dialogs-folder</code></td>
+          <td>Fragmente mit einem Dialog als Wurzelelement liegen im Dialogs-Ordner.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>i18n-used</code></td>
+          <td>i18n wird verwendet.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>i18n-languages</code></td>
+          <td>Die App unterstützt die vom Unternehmen vorgegebenen Sprachen.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>i18n-fallback</code></td>
+          <td>Eine Default-Sprache ist festgelegt.</td>
+          <td>warn</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>device-types</code></td>
+          <td>Die unterstützten Device Types sind festgelegt.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-warn">
+          <td><code>flex-enabled</code></td>
+          <td>flexEnabled hat den vorgegebenen Wert.</td>
+          <td>warn</td>
+          <td><span class="badge badge-warn">Warnung</span></td>
+          <td><ul><li><code>webapp/manifest.json</code>: sap.ui5/flexEnabled ist &quot;undefined&quot;, erwartet &quot;true&quot;.</li></ul></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>content-densities</code></td>
+          <td>Die Content Densities haben die vorgegebenen Werte.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Fehler</span></td>
+          <td><ul><li><code>webapp/manifest.json</code>: sap.ui5/contentDensities/compact ist nicht true.</li><li><code>webapp/manifest.json</code>: sap.ui5/contentDensities/cozy ist nicht true.</li></ul></td>
+        </tr>
+        <tr class="row-warn">
+          <td><code>mockserver-config</code></td>
+          <td>Eine MockServer-Konfiguration ist vorhanden.</td>
+          <td>warn</td>
+          <td><span class="badge badge-warn">Warnung</span></td>
+          <td><ul><li><code>ui5-mockserver.yaml</code>: Es fehlt eine ui5-mockserver.yaml im Projektroot.</li></ul></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>framework</code></td>
+          <td>Das verwendete Framework ist vorgegeben.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Fehler</span></td>
+          <td><ul><li><code>ui5.yaml</code>: framework.name in ui5.yaml ist &quot;OpenUI5&quot;, erwartet &quot;SAPUI5&quot;.</li></ul></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>ui5-version</code></td>
+          <td>Die UI5-Version erfüllt die Vorgabe.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Fehler</span></td>
+          <td><ul><li><code>webapp/manifest.json</code>: sap.ui5/dependencies/minUI5Version (&quot;1.77.0&quot;) ist kleiner als die Mindestversion &quot;1.152&quot;.</li><li>minUI5Version (&quot;1.77.0&quot;) und framework.version (&quot;1.153.0&quot;) sind nicht konsistent (major.minor).</li></ul></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>flp-config</code></td>
+          <td>Die App hat eine Fiori-Launchpad-Konfiguration für mindestens eine Kachel.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Fehler</span></td>
+          <td><ul><li><code>webapp/manifest.json</code>: sap.app/crossNavigation/inbounds hat keinen Eintrag mit semanticObject und action.</li></ul></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>deploy-config</code></td>
+          <td>Eine Deployment-Konfiguration mit eingerichtetem Backend ist vorhanden.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Fehler</span></td>
+          <td><ul><li><code>ui5-deploy.yaml</code>: Es fehlt eine ui5-deploy.yaml im Projektroot.</li></ul></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>app-title-description</code></td>
+          <td>Die App hat einen Titel und eine Beschreibung mit tatsächlichem Text.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Fehler</span></td>
+          <td><ul><li><code>webapp/i18n/i18n.properties</code>: i18n-Schlüssel &quot;appTitle&quot; für sap.app/title ist leer oder fehlt.</li><li><code>webapp/i18n/i18n.properties</code>: i18n-Schlüssel &quot;appDescription&quot; für sap.app/description ist leer oder fehlt.</li></ul></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>qunit-opa-tests</code></td>
+          <td>Das Projekt hat Unit- oder Integrationstests mit QUnit oder OPA5.</td>
+          <td>warn</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-warn">
+          <td><code>wdi5-tests</code></td>
+          <td>Das Projekt nutzt wdio-ui5 (wdi5) für End-to-End-Tests.</td>
+          <td>warn</td>
+          <td><span class="badge badge-warn">Warnung</span></td>
+          <td><ul><li><code>wdio.conf.js</code>: Es fehlt eine wdio.conf.js (oder .ts) im Projektroot.</li><li><code>package.json</code>: wdio-ui5-service ist keine Abhängigkeit in package.json.</li></ul></td>
+        </tr>
+        <tr class="row-warn">
+          <td><code>playwright-tests</code></td>
+          <td>Das Projekt nutzt Playwright für End-to-End-Tests.</td>
+          <td>warn</td>
+          <td><span class="badge badge-warn">Warnung</span></td>
+          <td><ul><li><code>playwright.config.ts</code>: Es fehlt eine playwright.config.ts (oder .js) im Projektroot.</li><li><code>package.json</code>: @playwright/test ist keine Abhängigkeit in package.json.</li></ul></td>
+        </tr>
+        <tr class="row-warn">
+          <td><code>app-icons</code></td>
+          <td>Die App hat eigene Icons statt der Generator-Platzhalter.</td>
+          <td>warn</td>
+          <td><span class="badge badge-warn">Warnung</span></td>
+          <td><ul><li><code>webapp/manifest.json</code>: sap.ui/icons/icon ist nicht gesetzt.</li><li><code>webapp/manifest.json</code>: sap.ui/icons/favIcon ist nicht gesetzt.</li></ul></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>app-version</code></td>
+          <td>Die App-Version wurde gepflegt und ist nicht der Generator-Default.</td>
+          <td>warn</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr></tbody>
+      </table>
+    </details>
+  </div>
+
+  <div class="locale-panel" data-locale="en" lang="en" hidden>
+    <h1>UI5 BlueprintAudit Report</h1>
+    <p class="meta">Generated: 2026-10-23T15:03:30.954Z</p>
+
+    <h2>Summary</h2>
+    <table>
+      <thead><tr><th>Project</th><th>Type</th><th>Errors</th><th>Warnings</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Shop Administration Tool</td>
+          <td>fs</td>
+          <td>12</td>
+          <td>5</td>
+          <td><span class="badge badge-error">Error</span></td>
+        </tr></tbody>
+    </table>
+
+    <h2>Details</h2>
+    
+    <details class="project">
+      <summary>Shop Administration Tool (fs) <span class="badge badge-error">Error</span></summary>
+      <table class="rules">
+        <thead>
+          <tr><th>Rule</th><th>Description</th><th>Severity</th><th>Status</th><th>Findings</th></tr>
+        </thead>
+        <tbody>
+        <tr class="row-error">
+          <td><code>typescript</code></td>
+          <td>The project uses TypeScript.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Error</span></td>
+          <td><ul><li><code>tsconfig.json</code>: Missing tsconfig.json in the project root.</li><li><code>webapp/Component.js</code>: JavaScript file instead of TypeScript: webapp/Component.js</li><li><code>webapp/control/D3Chart.js</code>: JavaScript file instead of TypeScript: webapp/control/D3Chart.js</li><li><code>webapp/control/D3ColumnChart.js</code>: JavaScript file instead of TypeScript: webapp/control/D3ColumnChart.js</li><li><code>webapp/control/D3ComparisonChart.js</code>: JavaScript file instead of TypeScript: webapp/control/D3ComparisonChart.js</li><li><code>webapp/control/D3PieChart.js</code>: JavaScript file instead of TypeScript: webapp/control/D3PieChart.js</li><li><code>webapp/controller/App.controller.js</code>: JavaScript file instead of TypeScript: webapp/controller/App.controller.js</li><li><code>webapp/controller/BaseController.js</code>: JavaScript file instead of TypeScript: webapp/controller/BaseController.js</li><li><code>webapp/controller/Home.controller.js</code>: JavaScript file instead of TypeScript: webapp/controller/Home.controller.js</li><li><code>webapp/controller/Statistics.controller.js</code>: JavaScript file instead of TypeScript: webapp/controller/Statistics.controller.js</li><li><code>webapp/controller/settings/MasterSettings.controller.js</code>: JavaScript file instead of TypeScript: webapp/controller/settings/MasterSettings.controller.js</li><li><code>webapp/model/formatter.js</code>: JavaScript file instead of TypeScript: webapp/model/formatter.js</li><li><code>webapp/model/models.js</code>: JavaScript file instead of TypeScript: webapp/model/models.js</li></ul></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>xml-views</code></td>
+          <td>Views are implemented as XML views.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>controller-matches-view</code></td>
+          <td>Every XML view&#39;s controller name matches the view&#39;s own file name, and that controller file exists.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Error</span></td>
+          <td><ul><li><code>webapp/view/settings/DetailSettings.view.xml</code>: View &quot;webapp/view/settings/DetailSettings.view.xml&quot; should reference a controller named &quot;DetailSettings&quot;, but references &quot;sap.ui.demo.toolpageapp.controller.settings.MasterSettings&quot; (expected base name &quot;DetailSettings&quot;, got &quot;MasterSettings&quot;).</li></ul></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>folder-structure</code></td>
+          <td>The minimum folder structure is present.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>no-custom-controls</code></td>
+          <td>The project does not define its own UI5 controls.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Error</span></td>
+          <td><ul><li><code>webapp/control/D3Chart.js</code>: Custom control &quot;sap.ui.demo.toolpageapp.control.D3Chart&quot; in webapp/control/D3Chart.js</li></ul></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>odata-service</code></td>
+          <td>The number of OData services used is within the expected range.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Error</span></td>
+          <td><ul><li><code>webapp/manifest.json</code>: Only 0 OData service(s) found, at least 1 expected.</li></ul></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>odata-metadata-local</code></td>
+          <td>The OData metadata document is available locally.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>non-odata-json</code></td>
+          <td>Non-OData services are implemented as a JSONModel.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>no-custom-css</code></td>
+          <td>The project does not contain its own CSS.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>theme</code></td>
+          <td>The theme is prescribed and configured consistently.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>cache-buster</code></td>
+          <td>The app uses the cache buster.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Error</span></td>
+          <td><ul><li>No cache buster task/middleware configured in ui5.yaml, and index.html does not load UI5 via a versioned cache buster URL.</li></ul></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>namespace</code></td>
+          <td>The app uses the prescribed namespace.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Error</span></td>
+          <td><ul><li><code>webapp/manifest.json</code>: sap.app/id (&quot;sap.ui.demo.toolpageapp&quot;) does not start with &quot;de.itsfullofstars&quot;.</li></ul></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>consistent-namespace</code></td>
+          <td>All artifacts of the app use the same namespace.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>fragments-folder</code></td>
+          <td>XML fragments that are not dialogs are located in the fragments folder.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>dialogs-folder</code></td>
+          <td>Fragments with a dialog as the root element are located in the dialogs folder.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>i18n-used</code></td>
+          <td>i18n is used.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>i18n-languages</code></td>
+          <td>The app supports the languages prescribed by the company.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>i18n-fallback</code></td>
+          <td>A default language is set.</td>
+          <td>warn</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>device-types</code></td>
+          <td>The supported device types are defined.</td>
+          <td>error</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-warn">
+          <td><code>flex-enabled</code></td>
+          <td>flexEnabled has the prescribed value.</td>
+          <td>warn</td>
+          <td><span class="badge badge-warn">Warning</span></td>
+          <td><ul><li><code>webapp/manifest.json</code>: sap.ui5/flexEnabled is &quot;undefined&quot;, expected &quot;true&quot;.</li></ul></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>content-densities</code></td>
+          <td>The content densities have the prescribed values.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Error</span></td>
+          <td><ul><li><code>webapp/manifest.json</code>: sap.ui5/contentDensities/compact is not true.</li><li><code>webapp/manifest.json</code>: sap.ui5/contentDensities/cozy is not true.</li></ul></td>
+        </tr>
+        <tr class="row-warn">
+          <td><code>mockserver-config</code></td>
+          <td>A mock server configuration is present.</td>
+          <td>warn</td>
+          <td><span class="badge badge-warn">Warning</span></td>
+          <td><ul><li><code>ui5-mockserver.yaml</code>: Missing ui5-mockserver.yaml in the project root.</li></ul></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>framework</code></td>
+          <td>The framework used is prescribed.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Error</span></td>
+          <td><ul><li><code>ui5.yaml</code>: framework.name in ui5.yaml is &quot;OpenUI5&quot;, expected &quot;SAPUI5&quot;.</li></ul></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>ui5-version</code></td>
+          <td>The UI5 version meets the requirement.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Error</span></td>
+          <td><ul><li><code>webapp/manifest.json</code>: sap.ui5/dependencies/minUI5Version (&quot;1.77.0&quot;) is below the minimum version &quot;1.152&quot;.</li><li>minUI5Version (&quot;1.77.0&quot;) and framework.version (&quot;1.153.0&quot;) are not consistent (major.minor).</li></ul></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>flp-config</code></td>
+          <td>The app has a Fiori Launchpad configuration for at least one tile.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Error</span></td>
+          <td><ul><li><code>webapp/manifest.json</code>: sap.app/crossNavigation/inbounds has no entry with semanticObject and action.</li></ul></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>deploy-config</code></td>
+          <td>A deployment configuration with a configured backend is present.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Error</span></td>
+          <td><ul><li><code>ui5-deploy.yaml</code>: Missing ui5-deploy.yaml in the project root.</li></ul></td>
+        </tr>
+        <tr class="row-error">
+          <td><code>app-title-description</code></td>
+          <td>The app has a title and a description with actual text.</td>
+          <td>error</td>
+          <td><span class="badge badge-error">Error</span></td>
+          <td><ul><li><code>webapp/i18n/i18n.properties</code>: i18n key &quot;appTitle&quot; for sap.app/title is empty or missing.</li><li><code>webapp/i18n/i18n.properties</code>: i18n key &quot;appDescription&quot; for sap.app/description is empty or missing.</li></ul></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>qunit-opa-tests</code></td>
+          <td>The project has unit or integration tests with QUnit or OPA5.</td>
+          <td>warn</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr>
+        <tr class="row-warn">
+          <td><code>wdi5-tests</code></td>
+          <td>The project uses wdio-ui5 (wdi5) for end-to-end tests.</td>
+          <td>warn</td>
+          <td><span class="badge badge-warn">Warning</span></td>
+          <td><ul><li><code>wdio.conf.js</code>: Missing wdio.conf.js (or .ts) in the project root.</li><li><code>package.json</code>: wdio-ui5-service is not a dependency in package.json.</li></ul></td>
+        </tr>
+        <tr class="row-warn">
+          <td><code>playwright-tests</code></td>
+          <td>The project uses Playwright for end-to-end tests.</td>
+          <td>warn</td>
+          <td><span class="badge badge-warn">Warning</span></td>
+          <td><ul><li><code>playwright.config.ts</code>: Missing playwright.config.ts (or .js) in the project root.</li><li><code>package.json</code>: @playwright/test is not a dependency in package.json.</li></ul></td>
+        </tr>
+        <tr class="row-warn">
+          <td><code>app-icons</code></td>
+          <td>The app has its own icons instead of the generator placeholders.</td>
+          <td>warn</td>
+          <td><span class="badge badge-warn">Warning</span></td>
+          <td><ul><li><code>webapp/manifest.json</code>: sap.ui/icons/icon is not set.</li><li><code>webapp/manifest.json</code>: sap.ui/icons/favIcon is not set.</li></ul></td>
+        </tr>
+        <tr class="row-ok">
+          <td><code>app-version</code></td>
+          <td>The app version has been maintained and is not the generator default.</td>
+          <td>warn</td>
+          <td><span class="badge badge-ok">OK</span></td>
+          <td><em>–</em></td>
+        </tr></tbody>
+      </table>
+    </details>
+  </div>
+  <script>
+  (function () {
+    var panels = document.querySelectorAll(".locale-panel");
+    var buttons = document.querySelectorAll(".lang-switch button");
+    function show(locale) {
+      panels.forEach(function (p) { p.hidden = p.dataset.locale !== locale; });
+      buttons.forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.locale === locale)); });
+      try { localStorage.setItem("ui5-blueprint-audit-report-lang", locale); } catch (e) {}
+    }
+    var saved = null;
+    try { saved = localStorage.getItem("ui5-blueprint-audit-report-lang"); } catch (e) {}
+    var firstLocale = panels.length ? panels[0].dataset.locale : null;
+    var initial = (saved && document.querySelector('.locale-panel[data-locale="' + saved + '"]')) ? saved : firstLocale;
+    buttons.forEach(function (b) { b.addEventListener("click", function () { show(b.dataset.locale); }); });
+    if (initial) show(initial);
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Shop Administration Tool" tests="32" failures="12" errors="0">
+    <testcase name="typescript" classname="Shop Administration Tool">
+      <failure message="Missing tsconfig.json in the project root.">tsconfig.json: Missing tsconfig.json in the project root.
+webapp/Component.js: JavaScript file instead of TypeScript: webapp/Component.js
+webapp/control/D3Chart.js: JavaScript file instead of TypeScript: webapp/control/D3Chart.js
+webapp/control/D3ColumnChart.js: JavaScript file instead of TypeScript: webapp/control/D3ColumnChart.js
+webapp/control/D3ComparisonChart.js: JavaScript file instead of TypeScript: webapp/control/D3ComparisonChart.js
+webapp/control/D3PieChart.js: JavaScript file instead of TypeScript: webapp/control/D3PieChart.js
+webapp/controller/App.controller.js: JavaScript file instead of TypeScript: webapp/controller/App.controller.js
+webapp/controller/BaseController.js: JavaScript file instead of TypeScript: webapp/controller/BaseController.js
+webapp/controller/Home.controller.js: JavaScript file instead of TypeScript: webapp/controller/Home.controller.js
+webapp/controller/Statistics.controller.js: JavaScript file instead of TypeScript: webapp/controller/Statistics.controller.js
+webapp/controller/settings/MasterSettings.controller.js: JavaScript file instead of TypeScript: webapp/controller/settings/MasterSettings.controller.js
+webapp/model/formatter.js: JavaScript file instead of TypeScript: webapp/model/formatter.js
+webapp/model/models.js: JavaScript file instead of TypeScript: webapp/model/models.js</failure>
+    </testcase>
+    <testcase name="xml-views" classname="Shop Administration Tool">
+    </testcase>
+    <testcase name="controller-matches-view" classname="Shop Administration Tool">
+      <failure message="View &quot;webapp/view/settings/DetailSettings.view.xml&quot; should reference a controller named &quot;DetailSettings&quot;, but references &quot;sap.ui.demo.toolpageapp.controller.settings.MasterSettings&quot; (expected base name &quot;DetailSettings&quot;, got &quot;MasterSettings&quot;).">webapp/view/settings/DetailSettings.view.xml: View &quot;webapp/view/settings/DetailSettings.view.xml&quot; should reference a controller named &quot;DetailSettings&quot;, but references &quot;sap.ui.demo.toolpageapp.controller.settings.MasterSettings&quot; (expected base name &quot;DetailSettings&quot;, got &quot;MasterSettings&quot;).</failure>
+    </testcase>
+    <testcase name="folder-structure" classname="Shop Administration Tool">
+    </testcase>
+    <testcase name="no-custom-controls" classname="Shop Administration Tool">
+      <failure message="Custom control &quot;sap.ui.demo.toolpageapp.control.D3Chart&quot; in webapp/control/D3Chart.js">webapp/control/D3Chart.js: Custom control &quot;sap.ui.demo.toolpageapp.control.D3Chart&quot; in webapp/control/D3Chart.js</failure>
+    </testcase>
+    <testcase name="odata-service" classname="Shop Administration Tool">
+      <failure message="Only 0 OData service(s) found, at least 1 expected.">webapp/manifest.json: Only 0 OData service(s) found, at least 1 expected.</failure>
+    </testcase>
+    <testcase name="odata-metadata-local" classname="Shop Administration Tool">
+    </testcase>
+    <testcase name="non-odata-json" classname="Shop Administration Tool">
+    </testcase>
+    <testcase name="no-custom-css" classname="Shop Administration Tool">
+    </testcase>
+    <testcase name="theme" classname="Shop Administration Tool">
+    </testcase>
+    <testcase name="cache-buster" classname="Shop Administration Tool">
+      <failure message="No cache buster task/middleware configured in ui5.yaml, and index.html does not load UI5 via a versioned cache buster URL.">No cache buster task/middleware configured in ui5.yaml, and index.html does not load UI5 via a versioned cache buster URL.</failure>
+    </testcase>
+    <testcase name="namespace" classname="Shop Administration Tool">
+      <failure message="sap.app/id (&quot;sap.ui.demo.toolpageapp&quot;) does not start with &quot;de.itsfullofstars&quot;.">webapp/manifest.json: sap.app/id (&quot;sap.ui.demo.toolpageapp&quot;) does not start with &quot;de.itsfullofstars&quot;.</failure>
+    </testcase>
+    <testcase name="consistent-namespace" classname="Shop Administration Tool">
+    </testcase>
+    <testcase name="fragments-folder" classname="Shop Administration Tool">
+    </testcase>
+    <testcase name="dialogs-folder" classname="Shop Administration Tool">
+    </testcase>
+    <testcase name="i18n-used" classname="Shop Administration Tool">
+    </testcase>
+    <testcase name="i18n-languages" classname="Shop Administration Tool">
+    </testcase>
+    <testcase name="i18n-fallback" classname="Shop Administration Tool">
+    </testcase>
+    <testcase name="device-types" classname="Shop Administration Tool">
+    </testcase>
+    <testcase name="flex-enabled" classname="Shop Administration Tool">
+      <system-out>webapp/manifest.json: sap.ui5/flexEnabled is &quot;undefined&quot;, expected &quot;true&quot;.</system-out>
+    </testcase>
+    <testcase name="content-densities" classname="Shop Administration Tool">
+      <failure message="sap.ui5/contentDensities/compact is not true.">webapp/manifest.json: sap.ui5/contentDensities/compact is not true.
+webapp/manifest.json: sap.ui5/contentDensities/cozy is not true.</failure>
+    </testcase>
+    <testcase name="mockserver-config" classname="Shop Administration Tool">
+      <system-out>ui5-mockserver.yaml: Missing ui5-mockserver.yaml in the project root.</system-out>
+    </testcase>
+    <testcase name="framework" classname="Shop Administration Tool">
+      <failure message="framework.name in ui5.yaml is &quot;OpenUI5&quot;, expected &quot;SAPUI5&quot;.">ui5.yaml: framework.name in ui5.yaml is &quot;OpenUI5&quot;, expected &quot;SAPUI5&quot;.</failure>
+    </testcase>
+    <testcase name="ui5-version" classname="Shop Administration Tool">
+      <failure message="sap.ui5/dependencies/minUI5Version (&quot;1.77.0&quot;) is below the minimum version &quot;1.152&quot;.">webapp/manifest.json: sap.ui5/dependencies/minUI5Version (&quot;1.77.0&quot;) is below the minimum version &quot;1.152&quot;.
+minUI5Version (&quot;1.77.0&quot;) and framework.version (&quot;1.153.0&quot;) are not consistent (major.minor).</failure>
+    </testcase>
+    <testcase name="flp-config" classname="Shop Administration Tool">
+      <failure message="sap.app/crossNavigation/inbounds has no entry with semanticObject and action.">webapp/manifest.json: sap.app/crossNavigation/inbounds has no entry with semanticObject and action.</failure>
+    </testcase>
+    <testcase name="deploy-config" classname="Shop Administration Tool">
+      <failure message="Missing ui5-deploy.yaml in the project root.">ui5-deploy.yaml: Missing ui5-deploy.yaml in the project root.</failure>
+    </testcase>
+    <testcase name="app-title-description" classname="Shop Administration Tool">
+      <failure message="i18n key &quot;appTitle&quot; for sap.app/title is empty or missing.">webapp/i18n/i18n.properties: i18n key &quot;appTitle&quot; for sap.app/title is empty or missing.
+webapp/i18n/i18n.properties: i18n key &quot;appDescription&quot; for sap.app/description is empty or missing.</failure>
+    </testcase>
+    <testcase name="qunit-opa-tests" classname="Shop Administration Tool">
+    </testcase>
+    <testcase name="wdi5-tests" classname="Shop Administration Tool">
+      <system-out>wdio.conf.js: Missing wdio.conf.js (or .ts) in the project root.
+package.json: wdio-ui5-service is not a dependency in package.json.</system-out>
+    </testcase>
+    <testcase name="playwright-tests" classname="Shop Administration Tool">
+      <system-out>playwright.config.ts: Missing playwright.config.ts (or .js) in the project root.
+package.json: @playwright/test is not a dependency in package.json.</system-out>
+    </testcase>
+    <testcase name="app-icons" classname="Shop Administration Tool">
+      <system-out>webapp/manifest.json: sap.ui/icons/icon is not set.
+webapp/manifest.json: sap.ui/icons/favIcon is not set.</system-out>
+    </testcase>
+    <testcase name="app-version" classname="Shop Administration Tool">
+    </testcase>
+  </testsuite>
+</testsuites>
